@@ -18,19 +18,19 @@
       <div class="nav-wrapper container">
       <a id="logo-container" href="#" class="brand-logo" style="color:black;">Text Summarizer</a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="{{url_for('index')}}" style="color:blue;">Home</a></li>
-         <li><a href="{{url_for('compare_summary')}}" style="color:blue;">Compare Summarizers</a></li>
+        <li><a href="index" style="color:blue;">Home</a></li>
+         <li><a href="compare_summary" style="color:blue;">Compare Summarizers</a></li>
          <li><a href="#aboutapp" style="color:blue;">About</a></li>
       </ul>
 
-      
+
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
   </nav>
 </div>
 	<ul id="nav-mobile" class="sidenav">
-        <li><a href="{{url_for('index')}}">Home</a></li>
-         <li><a href="{{url_for('compare_summary')}}">Compare</a></li>
+        <li><a href="index">Home</a></li>
+         <li><a href="compare_summary">Compare</a></li>
          <li><a href="#contactme">About</a></li>
       </ul>
 <!--Slider -->
@@ -44,13 +44,13 @@
           <h5 class="light grey-text text-lighten-3 hide-on-small-only">
            Using SpaCy, Gensim, NLTK and Sumy
           </h5>
-         
+
            <div class="row center">
           <a href="{{url_for('index')}}" id="download-button" class="btn-large waves-effect waves-light blue lighten-1">Refresh</a>
         </div>
         </div>
       </li>
-   
+
     </ul>
   </div>
 </section>
@@ -58,7 +58,7 @@
 <!-- Start of Main Section -->
  <div class="container">
     <div class="section">
-       
+
       <!--   Icon Section   -->
       <div class="row">
         <div class="input-field col s12 m10">
@@ -66,11 +66,11 @@
             <h2 class="center brown-text"><i class="material-icons">chrome_reader_mode</i></h2>
            <form method="POST" action="/test/analyze_url">
          <textarea name="rawtext" cols="3" rows="5" class="form-control" required="true" placeholder="Enter Text Here"></textarea>
-          
+
          <br/>
          <button class="btn btn-small waves-effect waves-light light-blue lighten-1" type="reset">Clear</button>
           <button class="btn btn-small waves-effect waves-light purple lighten-1" type="submit">Summarize</button>
-          
+
         </form>
           </div>
         </div>
@@ -85,7 +85,7 @@
          <input type="text" name="raw_url" placeholder="Enter URL Here" required="true">
          <button class="btn btn-small waves-effect waves-light light-blue lighten-1" type="reset">Clear</button>
           <button class="btn btn-small waves-effect waves-light purple lighten-1" type="submit">Summarize</button>
-          
+
         </form>
           </div>
         </div>
@@ -99,7 +99,7 @@
   <!-- Result Display-->
   <section class="section section-solutions-about grey darken-2">
  <div class="container white-text">
- 
+
       <!--   Icon Section   -->
       <div class="row">
         <div class="col s12 m6">
@@ -109,7 +109,7 @@
              <p>Reading Time: <span style="color:#0091EA;">{{ final_reading_time }} min </span></p>
             <p class="light">{{ctext}}</p>
             <div class="alert alert-info" role="alert"><p>Time Elapsed: <span style="color:#0091EA;">{{ final_time }} mins </span></p><br/>
-             
+
         </div>
           </div>
         </div>
@@ -122,16 +122,16 @@
               <p>Reading Time: <span style="color:#0091EA;">{{ summary_reading_time }} min </span></p>
         </div>
             <p class="light">{{ final_summary }}</p>
-          
+
           </div>
         </div>
 
       </div>
 
-  
+
   </div>
 </section>
-  
+
   <footer class="page-footer grey darken-4">
     <div class="container" id="aboutapp">
       <div class="row">
