@@ -14,11 +14,11 @@
 </head>
 <body><div class="navbar-fixed">
    <nav class="white" role="navigation">
-    <a class="left logo-container" href="https://katonic.ai"><img src="https://katonic.ai/assets/svg/logos/logo-katonic.png" alt="" style="background-color:white;width:200px;height:42px;margin-top:5px;"></a>
+    <a class="left logo-container" href="https://katonic.ai"><img src="static/img/logo.png" alt="" style="background-color:white;width:200px;height:42px;margin-top:5px;"></a>
       <div class="nav-wrapper container">
       <a id="logo-container" href="#" class="brand-logo" style="color:black;">Text Summarizer</a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="index" style="color:blue;">Home</a></li>
+        <li><a href="{{route}}" style="color:blue;">Home</a></li>
          <li><a href="compare_summary" style="color:blue;">Compare Summarizers</a></li>
          <li><a href="#aboutapp" style="color:blue;">About</a></li>
       </ul>
@@ -29,7 +29,7 @@
   </nav>
 </div>
 	<ul id="nav-mobile" class="sidenav">
-        <li><a href="index">Home</a></li>
+        <li><a href="">Home</a></li>
          <li><a href="compare_summary">Compare</a></li>
          <li><a href="#contactme">About</a></li>
       </ul>
@@ -46,7 +46,7 @@
           </h5>
 
            <div class="row center">
-          <a href="{{url_for('index')}}" id="download-button" class="btn-large waves-effect waves-light blue lighten-1">Refresh</a>
+          <a href="{{route}}" id="download-button" class="btn-large waves-effect waves-light blue lighten-1">Refresh</a>
         </div>
         </div>
       </li>
@@ -64,7 +64,7 @@
         <div class="input-field col s12 m10">
           <div class="icon-block">
             <h2 class="center brown-text"><i class="material-icons">chrome_reader_mode</i></h2>
-           <form method="POST" action="/test/analyze_url">
+           <form method="POST" action="analyze">
          <textarea name="rawtext" cols="3" rows="5" class="form-control" required="true" placeholder="Enter Text Here"></textarea>
 
          <br/>
@@ -81,7 +81,7 @@
         <div class="input-field col s12 m10">
           <div class="icon-block">
             <h2 class="center brown-text"><i class="material-icons">chrome_reader_mode</i></h2>
-           <form method="POST" action="/test/analyze_url">
+           <form method="POST" action="analyze_url">
          <input type="text" name="raw_url" placeholder="Enter URL Here" required="true">
          <button class="btn btn-small waves-effect waves-light light-blue lighten-1" type="reset">Clear</button>
           <button class="btn btn-small waves-effect waves-light purple lighten-1" type="submit">Summarize</button>
