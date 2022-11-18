@@ -1,3 +1,4 @@
+import os
 import time
 from urllib.request import urlopen
 
@@ -14,11 +15,12 @@ from sumy.summarizers.lex_rank import LexRankSummarizer
 from nltk_summarization import nltk_summarizer
 from spacy_summarization import text_summarizer
 
+
+route = os.environ["ROUTE"]
 nlp = en_core_web_sm.load()
-app = Flask(__name__)
+app = Flask(__name__, static_folder="static")
 
 
-# Sumy
 def sumy_summary(docx):
     parser = PlaintextParser.from_string(docx, Tokenizer("english"))
     lex_summarizer = LexRankSummarizer()
@@ -43,12 +45,12 @@ def get_text(url):
     return fetched_text
 
 
-@app.route("/index")
+@app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("index.html", route=route)
 
 
-@app.route("/index/analyze", methods=["GET", "POST"])
+@app.route("/analyze", methods=["GET", "POST"])
 def analyze():
     start = time.time()
     if request.method == "POST":
@@ -65,10 +67,11 @@ def analyze():
         final_time=final_time,
         final_reading_time=final_reading_time,
         summary_reading_time=summary_reading_time,
+        route=route,
     )
 
 
-@app.route("/index/analyze_url", methods=["GET", "POST"])
+@app.route("/analyze_url", methods=["GET", "POST"])
 def analyze_url():
     start = time.time()
     if request.method == "POST":
@@ -86,16 +89,17 @@ def analyze_url():
         final_time=final_time,
         final_reading_time=final_reading_time,
         summary_reading_time=summary_reading_time,
+        route=route,
     )
 
 
-@app.route("/index/compare_summary")
+@app.route("/compare_summary")
 def compare_summary():
     print("compare_summary", request.method)
-    return render_template("compare_summary.html")
+    return render_template("compare_summary.html", route=route)
 
 
-@app.route("/index/comparer", methods=["GET", "POST"])
+@app.route("/comparer", methods=["GET", "POST"])
 def comparer():
     print(request.method)
     start = time.time()
@@ -129,10 +133,11 @@ def comparer():
         final_summary_sumy=final_summary_sumy,
         summary_reading_time_sumy=summary_reading_time_sumy,
         summary_reading_time_nltk=summary_reading_time_nltk,
+        route=route,
     )
 
 
-@app.route("/index/about")
+@app.route("/about")
 def about():
     return render_template("index.html")
 
