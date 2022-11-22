@@ -1,12 +1,12 @@
 FROM python:3.8.2-slim
 
-RUN mkdir -p assets static/css static/js templates
+RUN mkdir -p static/css static/js static/img templates
 
 COPY app.py .
 COPY nltk_summarization.py .
 COPY spacy_summarization.py .
 COPY spacy_summarizer.py .
-COPY assets/logo.png assets/.
+COPY static/img/logo.png static/img/.
 COPY static/css/custom.css static/css/.
 COPY static/css/materialize.css static/css/.
 COPY static/css/materialize.min.css static/css/.
